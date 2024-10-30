@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OPTIDESK</title>
+  <style>
+    /* Estilos básicos */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      width: 80%;
+      max-width: 1000px;
+      background-color: #ffffff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .header {
+      background-color: blue;
+      padding: 20px;
+      text-align: center;
+      color: #ffffff;
+    }
+    .header h1 {
+      margin: 0;
+    }
+    .tabs {
+      display: flex;
+      border-bottom: 2px solid #ddd;
+    }
+    .tab {
+      flex: 1;
+      padding: 15px;
+      text-align: center;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .tab:hover, .tab.active {
+      background-color: cornflowerblue;
+      color: #ffffff;
+    }
+    .tab-content {
+      display: none;
+      padding: 20px;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    .graph-example, .survey-question {
+      margin-top: 15px;
+      text-align: center;
+    }
+    .graph-example img, .survey-question img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 5px;
+      background-color: #f9f9f9;
+    }
+    /* New class for larger notification image */
+    .notification-image {
+      width: 80%;
+      height: auto;
+      max-width: 800px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 5px;
+      background-color: #f9f9f9;
+    }
+    .survey-container, .report-summary, .data-table {
+      margin-top: 15px;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+    }
+    .survey-container li {
+      margin-bottom: 10px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+    th, td {
+      padding: 8px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>OPTIDESK - Visualización del Sistema</h1>
+      <p>Un sistema para la gestión de inscripciones y optimización de recursos académicos</p>
+    </div>
+
+    <div class="tabs">
+      <div class="tab active" onclick="openTab('tab1')">Inicio</div>
+      <div class="tab" onclick="openTab('tab2')">Encuestas de Inscripción</div>
+      <div class="tab" onclick="openTab('tab3')">Notificaciones</div>
+      <div class="tab" onclick="openTab('tab4')">Recopilación de Datos</div>
+      <div class="tab" onclick="openTab('tab5')">Generador de Reportes</div>
+    </div>
+
+    <div id="tab1" class="tab-content active">
+      <h2>Bienvenido a OPTIDESK</h2>
+      <p>OPTIDESK es un sistema diseñado para mejorar la asignación de recursos en la universidad, permitiendo a la coordinación escolar tomar decisiones informadas basadas en datos recopilados de los estudiantes.</p>
+      <div class="graph-example">
+        <img src="images/inicio.png" alt="Example home image">
+      </div>
+    </div>
+
+    <div id="tab2" class="tab-content">
+      <h2>Encuestas de Inscripción</h2>
+      <div class="survey-container">
+        <h3>Encuesta:</h3>
+        <ul>
+          <li>¿Trabajas actualmente? Opciones: Sí / No</li>
+          <li>¿A qué distancia te encuentras de la universidad? Opciones: Menos de 5 km, 5-15 km, Más de 15 km</li>
+          <li>¿Cuántas horas al día dedicas al estudio?</li>
+          <li>¿Cuál es tu situación académica actual? Opciones: Regular / Irregular</li>
+          <li>¿Qué turno prefieres para tus clases? Opciones: Matutino / Vespertino</li>
+        </ul>
+      </div>
+      <div class="graph-example">
+        <img src="images/faltas.png" alt="Survey example image">
+      </div>
+    </div>
+
+    <div id="tab3" class="tab-content">
+      <h2>Notificaciones</h2>
+      <p>El sistema envía alertas automáticas a los estudiantes sobre cambios en sus horarios y disponibilidad de grupos en tiempo real.</p>
+      <ul>
+        <li>Notificaciones de cambios en horarios y grupos disponibles.</li>
+        <li>Alertas personalizadas según la situación académica del estudiante.</li>
+      </ul>
+      <div class="graph-example">
+        <img src="images/notificaciones.png" alt="Notificaciones" class="notification-image">
+      </div>
+    </div>
+
+    <div id="tab4" class="tab-content">
+      <h2>Recopilación de Datos</h2>
+      <div class="data-table">
+        <table>
+          <tr>
+            <th>Estudiante</th>
+            <th>Distancia a la Universidad</th>
+            <th>Horas de Estudio Diarias</th>
+            <th>¿Trabaja?</th>
+          </tr>
+          <tr>
+            <td>Ana Pérez</td>
+            <td>10 km</td>
+            <td>4 horas</td>
+            <td>Sí</td>
+          </tr>
+          <tr>
+            <td>Carlos Ramírez</td>
+            <td>3 km</td>
+            <td>2 horas</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td>Lucía Gómez</td>
+            <td>15 km</td>
+            <td>5 horas</td>
+            <td>Sí</td>
+          </tr>
+          <tr>
+            <td>Jorge Hernández</td>
+            <td>8 km</td>
+            <td>3 horas</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td>María López</td>
+            <td>5 km</td>
+            <td>2 horas</td>
+            <td>Sí</td>
+          </tr>
+        </table>
+      </div>
+      <div class="graph-example">
+        <img src="images/cupo.png" alt="Data collection example image">
+      </div>
+    </div>
+
+    <div id="tab5" class="tab-content">
+      <h2>Generador de Reportes</h2>
+      <div class="report-summary">
+        <h3>Reporte Resumido:</h3>
+        <p>Materia: Álgebra Lineal</p>
+        <p>Grupos: 3</p>
+        <p>Ocupación Promedio: 85%</p>
+        <p>Recomendación: Abrir un nuevo grupo en el turno vespertino</p>
+      </div>
+      <div class="graph-example">
+        <img src="images/Reporte2.png" alt="Reporte1">
+      </div>
+      <div class="graph-example">
+        <img src="images/Reporte1.png" alt="Reporte2">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openTab(tabId) {
+      var contents = document.querySelectorAll('.tab-content');
+      contents.forEach(content => content.classList.remove('active'));
+
+      var tabs = document.querySelectorAll('.tab');
+      tabs.forEach(tab => tab.classList.remove('active'));
+
+      document.getElementById(tabId).classList.add('active');
+      document.querySelector(`.tab[onclick="openTab('${tabId}')"]`).classList.add('active');
+    }
+  </script>
+</body>
+</html>
